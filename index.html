@@ -2,10 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Protected Page</title>
+<title>Protected Entry</title>
 <style>
   body { font-family: sans-serif; padding: 40px; }
-  #content { display: none; }
 </style>
 </head>
 
@@ -15,27 +14,12 @@
 <input id="pw" type="password" placeholder="Enter password">
 <button onclick="check()">Submit</button>
 
-<div id="content">
-
-<main class="content">
-
-<h1>Index of files:</h1>
-
-<ol>
-  <li><a href="count-1/As-to-count-1.pdf" target="_blank" rel="noopener">Response to Charge 1</a></li>
-
-  <li><a href="count-2/As-to-count-2.pdf" target="_blank" rel="noopener">Response to Charge 2</a></li>
-</ol>
-
-</main>
-</div>
-
 <script>
   function check() {
     const input = document.getElementById('pw').value;
     const correct = "Jade7301!"; // change this
     if (input === correct) {
-      document.getElementById('content').style.display = "block";
+      window.location.href = "home.html"; // your real page
     } else {
       alert("Incorrect password");
     }
