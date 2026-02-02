@@ -1,7 +1,10 @@
 :root {
   --font-main: "Georgia", "Times New Roman", serif;
   --font-alt: "Arial", sans-serif;
-  --color-bg: #e0caa3;
+  --color-bg: radial-gradient(circle at 20% 20%, #df9745 0%, transparent 60%),
+    radial-gradient(circle at 80% 0%, #dfdc34 0%, transparent 55%),
+    linear-gradient(135deg, #1e2988 0%, #f4e9da 55%, #3133c9 100%);
+
   --color-text: #1f1f1f;
   --color-text-muted: #333333;
   --color-border: #d6cfc5;
@@ -20,12 +23,18 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background: var(--color-bg);
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  position: relative;
 }
 
 .content {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 32px 20px 64px;
+  margin-top: 150px;
+  margin-left: 250px;
 }
 
 h1 {
@@ -62,4 +71,30 @@ hr {
   border-left: 3px solid var(--color-border);
   padding-left: 1rem;
   margin-left: 0.5rem;
+}
+
+ol {
+  counter-reset: section; /* Initialize counter */
+  list-style: none; /* Remove default numbering */
+  padding-left: 0;
+}
+
+li {
+  counter-increment: section;
+  padding-left: 1.5em;
+  position: relative;
+}
+
+li:not(.category)::before {
+  content: counter(section) ". ";
+  position: absolute;
+  left: 0;
+}
+
+li.category {
+  counter-reset: section; /* Reset counter after category */
+  font-weight: bold;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 25px;
 }
